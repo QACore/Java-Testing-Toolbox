@@ -4,7 +4,7 @@
 
 * **[Leonardo Carmona da Silva]** - *Product Owner and Software Architect* - [LeoCarmona](https://github.com/LeoCarmona) on [LinkedIn](https://www.linkedin.com/in/l3ocarmona/)
 
-See also the list of [contributors](https://github.com/QACore/Selenium-Assured/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/QACore/Java-Testing-Toolbox/graphs/contributors) who participated in this project.
 
 ## License
 
