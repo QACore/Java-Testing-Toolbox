@@ -23,6 +23,11 @@ public final class WebDriverManager {
             return webDriver.get();
         }
         
+        @Override
+        public String toString() {
+            return "WebDriverManager(thread=" + Thread.currentThread().getName() + ", driver=" + webDriver.get() + ")";
+        }
+        
     };
 
     public static WebDriver getDriver() {
