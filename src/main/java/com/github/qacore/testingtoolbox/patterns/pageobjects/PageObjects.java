@@ -26,6 +26,15 @@ public interface PageObjects extends WrapsDriver {
     }
 
     /**
+     * Checks if the page is loaded.
+     * 
+     * @return {@code true} if is loaded. Otherwise, {@code false}.
+     */
+    public default boolean isLoaded() {
+        return this.getWrappedDriver().getCurrentUrl().equals(this.getUrl());
+    }
+
+    /**
      * The URL to load. It is best to use a fully qualified URL.
      * 
      * @return The URL to load.

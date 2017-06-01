@@ -16,7 +16,7 @@ import org.openqa.selenium.security.UserAndPassword;
  * @see PageObjects
  * @see WrapsDriver
  */
-public interface LoginPageObjects extends PageObjects, WrapsDriver {
+public interface LoginPageObjects extends PageObjects {
 
     /**
      * Performs an authentication on the page.
