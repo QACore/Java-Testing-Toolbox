@@ -33,7 +33,7 @@ public abstract class AbstractLoginPageObjects extends AbstractPageObjects imple
 
     @Override
     public String toString() {
-        return "LoginPage (" + this.getUrl() + ")";
+        return "LoginPage(" + this.getUrl() + ")";
     }
 
 }
