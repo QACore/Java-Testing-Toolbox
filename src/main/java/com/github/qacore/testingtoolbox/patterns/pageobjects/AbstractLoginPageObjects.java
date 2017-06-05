@@ -16,7 +16,9 @@ import com.github.qacore.testingtoolbox.managers.WebDriverManager;
  *         </ul>
  *         
  * @see WebDriverManager
- *
+ * 
+ * @since 1.0.0
+ * 
  */
 public abstract class AbstractLoginPageObjects extends AbstractPageObjects implements LoginPageObjects {
 

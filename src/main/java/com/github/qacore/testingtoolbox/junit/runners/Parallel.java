@@ -22,6 +22,8 @@ import org.junit.runners.model.InitializationError;
  * 
  * @see BlockJUnit4ClassRunner
  * @see ParallelScheduler
+ * 
+ * @since 1.0.0
  *
  */
 public class Parallel extends BlockJUnit4ClassRunner {

@@ -28,6 +28,8 @@ import org.junit.runners.model.RunnerBuilder;
  * @see Suite
  * @see ParallelScheduler
  * 
+ * @since 1.0.0
+ * 
  */
 public class ParallelSuite extends Suite {
 

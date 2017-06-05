@@ -16,6 +16,8 @@ import org.openqa.selenium.internal.WrapsDriver;
  * @see LoginPageObjects
  * @see WrapsDriver
  * 
+ * @since 1.0.0
+ * 
  */
 public interface PageObjects extends WrapsDriver {
 

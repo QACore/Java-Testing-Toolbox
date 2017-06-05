@@ -16,7 +16,9 @@ import com.github.qacore.testingtoolbox.managers.WebDriverManager;
  *         </ul>
  *         
  * @see WebDriverManager
- *
+ * 
+ * @since 1.0.0
+ * 
  */
 public class AbstractPageObjects implements PageObjects {
 

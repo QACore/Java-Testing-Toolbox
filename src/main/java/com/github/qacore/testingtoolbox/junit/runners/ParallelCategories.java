@@ -24,6 +24,8 @@ import org.junit.runners.model.RunnerBuilder;
  * @see Categories
  * @see ParallelScheduler
  *
+ * @since 1.0.0
+ *
  */
 public class ParallelCategories extends Categories {
 

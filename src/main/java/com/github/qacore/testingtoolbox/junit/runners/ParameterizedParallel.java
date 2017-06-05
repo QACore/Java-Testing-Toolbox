@@ -22,6 +22,8 @@ import org.junit.runners.Parameterized;
  * @see Parameterized
  * @see ParallelScheduler
  *
+ * @since 1.0.0
+ *
  */
 public class ParameterizedParallel extends Parameterized {
 

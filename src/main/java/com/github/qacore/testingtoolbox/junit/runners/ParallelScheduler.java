@@ -20,6 +20,8 @@ import org.junit.runners.model.RunnerScheduler;
  *         <li><a href="mailto:lcdesenv@gmail.com">lcdesenv@gmail.com</a></li>
  *         </ul>
  *
+ * @since 1.0.0
+ *
  */
 class ParallelScheduler implements RunnerScheduler {
 

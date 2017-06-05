@@ -25,6 +25,8 @@ import org.junit.runners.model.RunnerBuilder;
  * 
  * @see Enclosed
  * @see ParallelScheduler
+ * 
+ * @since 1.0.0
  *
  */
 public class EnclosedParallel extends Enclosed {

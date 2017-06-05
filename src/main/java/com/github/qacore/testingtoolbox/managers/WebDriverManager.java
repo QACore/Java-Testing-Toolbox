@@ -12,7 +12,9 @@ import org.openqa.selenium.internal.WrapsDriver;
  *         <li><a href="https://github.com/leocarmona">https://github.com/leocarmona</a></li>
  *         <li><a href="mailto:lcdesenv@gmail.com">lcdesenv@gmail.com</a></li>
  *         </ul>
- *
+ * 
+ * @since 1.0.0
+ * 
  */
 public final class WebDriverManager {
 
