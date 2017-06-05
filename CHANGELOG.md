@@ -1,0 +1,21 @@
+v1.0.0
+======
+
+IMPORTANT INCLUSIONS (JUnit parallel runners)
+
+* com.github.qacore.testingtoolbox.junit.runners.EnclosedParallel
+* com.github.qacore.testingtoolbox.junit.runners.Parallel
+* com.github.qacore.testingtoolbox.junit.runners.ParallelCategories
+* com.github.qacore.testingtoolbox.junit.runners.ParallelSuite
+* com.github.qacore.testingtoolbox.junit.runners.ParameterizedParallel
+
+IMPORTANT INCLUSIONS (WebDriver)
+
+* com.github.qacore.testingtoolbox.managers.WebDriverManager
+
+IMPORTANT INCLUSIONS (Page Object pattern)
+
+* com.github.qacore.testingtoolbox.patterns.pageobjects.LoginPageObjects
+* com.github.qacore.testingtoolbox.patterns.pageobjects.PageObjects
+* com.github.qacore.testingtoolbox.patterns.pageobjects.AbstractLoginPageObjects
+* com.github.qacore.testingtoolbox.patterns.pageobjects.AbstractPageObjects
