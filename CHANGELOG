@@ -6,7 +6,7 @@ IMPORTANT CHANGES
 * Rename com.github.qacore.testingtoolbox.junit.runners.ParameterizedParallel to com.github.qacore.testingtoolbox.junit.runners.ParallelParameterized
 * Rename parallelTestThreadsPerCore property to toolbox.parallelTestThreadsPerCore
 
-v1.0.0
+v1.0.0 (2017-06-05)
 ======
 
 IMPORTANT INCLUSIONS (JUnit parallel runners)
