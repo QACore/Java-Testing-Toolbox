@@ -29,7 +29,7 @@ class ParallelScheduler implements RunnerScheduler {
 
     static {
         BigDecimal availableProcessors = new BigDecimal(String.valueOf(Runtime.getRuntime().availableProcessors()));
-        BigDecimal parallelTestThreadsPerCore = new BigDecimal(System.getProperty("parallelTestThreadsPerCore", "1"));
+        BigDecimal parallelTestThreadsPerCore = new BigDecimal(System.getProperty("toolbox.parallelTestThreadsPerCore", "1"));
         BigDecimal availableThreads = availableProcessors.multiply(parallelTestThreadsPerCore).setScale(0, BigDecimal.ROUND_HALF_EVEN);
         int threads = availableThreads.intValue();
 
@@ -54,7 +54,7 @@ class ParallelScheduler implements RunnerScheduler {
 
     @Override
     public void schedule(Runnable childStatement) {
-        childStatements.add(new Callable<Void>() {
+        this.getChildStatements().add(new Callable<Void>() {
 
             @Override
             public Void call() throws Exception {
@@ -69,7 +69,7 @@ class ParallelScheduler implements RunnerScheduler {
     @Override
     public void finished() {
         try {
-            EXECUTOR_SERVICE.invokeAll(childStatements);
+            EXECUTOR_SERVICE.invokeAll(this.getChildStatements());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
