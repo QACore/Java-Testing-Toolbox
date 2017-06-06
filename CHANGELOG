@@ -10,6 +10,10 @@ IMPORTANT INCLUSIONS (Junit commons categories)
 
 * com.github.qacore.testingtoolbox.junit.categories.*
 
+ANOTHER INCLUSIONS
+
+* com.github.qacore.testingtoolbox.annotations.Tag
+
 v1.0.0 (2017-06-05)
 ======
 
