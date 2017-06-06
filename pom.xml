@@ -127,4 +127,9 @@
 		</repository>
 	</distributionManagement>
 
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/QACore/Java-Testing-Toolbox/issues</url>
+	</issueManagement>
+
 </project> 
