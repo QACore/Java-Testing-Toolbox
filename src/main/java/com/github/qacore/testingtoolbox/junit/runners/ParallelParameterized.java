@@ -6,7 +6,7 @@ import org.junit.runners.Parameterized;
  * An extension of the JUnit {@link Parameterized} runner, which executes all {@code @Test} methods in parallel. Example:
  * 
  * <pre>
- * &#64;RunWith(ParameterizedParallel.class)
+ * &#64;RunWith(ParallelParameterized.class)
  * public class FooTest {
  *    ...
  * }
@@ -25,9 +25,9 @@ import org.junit.runners.Parameterized;
  * @since 1.0.0
  *
  */
-public class ParameterizedParallel extends Parameterized {
+public class ParallelParameterized extends Parameterized {
 
-    public ParameterizedParallel(Class<?> klass) throws Throwable {
+    public ParallelParameterized(Class<?> klass) throws Throwable {
         super(klass);
 
         this.setScheduler(new ParallelScheduler());
