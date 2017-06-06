@@ -1,5 +1,7 @@
 # Java Testing Toolbox
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.qacore/java-testing-toolbox.svg)](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.qacore.java-testing-toolbox) [![Build Status](https://travis-ci.org/QACore/Java-Testing-Toolbox.svg?branch=master)](https://travis-ci.org/QACore/Java-Testing-Toolbox)
+
 ## Continuous Integration Builds
 
 | CI Server | OS      | Status | Description |
