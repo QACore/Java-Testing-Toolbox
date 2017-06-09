@@ -3,6 +3,8 @@ package com.github.qacore.testingtoolbox.patterns.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;
 
+import com.github.qacore.testingtoolbox.managers.WebDriverManager;
+
 /**
  * This interface indicates that the classes executes the basic actions of the <b>Page Object</b> pattern.
  * 
@@ -45,11 +47,15 @@ public interface PageObjects extends WrapsDriver {
     public String getUrl();
 
     /**
-     * The driver used on the page.
+     * The driver used on the page. The default is {@link WebDriverManager#getDriver()}.
      * 
      * @return the {@link WebDriver} used on the page.
+     * 
+     * @see WebDriverManager
      */
     @Override
-    public WebDriver getWrappedDriver();
+    public default WebDriver getWrappedDriver() {
+        return WebDriverManager.getDriver();
+    }
 
 }
