@@ -23,9 +23,9 @@ import org.junit.runners.model.RunnerScheduler;
  * @since 1.0.0
  *
  */
-class ParallelScheduler implements RunnerScheduler {
+public class ParallelScheduler implements RunnerScheduler {
 
-    protected static final ExecutorService EXECUTOR_SERVICE;
+    public static final ExecutorService EXECUTOR_SERVICE;
 
     static {
         BigDecimal availableProcessors = new BigDecimal(String.valueOf(Runtime.getRuntime().availableProcessors()));
@@ -75,11 +75,11 @@ class ParallelScheduler implements RunnerScheduler {
         }
     }
 
-    protected List<Callable<Void>> getChildStatements() {
+    public List<Callable<Void>> getChildStatements() {
         return childStatements;
     }
 
-    protected void setChildStatements(List<Callable<Void>> childStatements) {
+    public void setChildStatements(List<Callable<Void>> childStatements) {
         this.childStatements = childStatements;
     }
 

@@ -1,3 +1,10 @@
+v1.1.2 (2017-06-12)
+======
+
+IMPORTANT CHANGES
+
+* Now ParallelScheduler is public.
+
 v1.1.1 (2017-06-09)
 ======
 
