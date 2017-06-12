@@ -15,7 +15,7 @@
    <dependency>
       <groupId>com.github.qacore</groupId>
       <artifactId>java-testing-toolbox</artifactId>
-      <version>1.1.1</version>
+      <version>1.1.2</version>
    </dependency>
 </dependencies>
 ```
