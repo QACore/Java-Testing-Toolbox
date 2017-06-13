@@ -22,6 +22,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.ManagedWebDriverContex
  *         <li><a href="mailto:lcdesenv@gmail.com">lcdesenv@gmail.com</a></li>
  *         </ul>
  * 
+ * @see LocalStorage
  * @see ManagedWebDriverContext
  *
  * @since 1.2.0
@@ -74,7 +75,7 @@ public class JSLocalStorage extends ManagedWebDriverContext implements LocalStor
 
     @Override
     public int size() {
-        return Integer.parseInt(String.valueOf(((JavascriptExecutor) this.getWrappedDriver()).executeScript("return localStorage.length")));
+        return (int) (long) ((JavascriptExecutor) this.getWrappedDriver()).executeScript("return localStorage.length");
     }
 
 }
