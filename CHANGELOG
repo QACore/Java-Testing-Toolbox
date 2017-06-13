@@ -8,7 +8,7 @@ IMPORTANT INCLUSIONS
 IMPORTANT INCLUSIONS (Selenium HTML 5 Support)
 
 * com.github.qacore.testingtoolbox.selenium.html5.JSLocalStorage
-
+* com.github.qacore.testingtoolbox.selenium.html5.JSApplicationCache
 IMPORTANT CHANGES
 
 * Moved com.github.qacore.testingtoolbox.patterns.pageobjects.* to com.github.qacore.testingtoolbox.selenium.support.pageobjects.*
