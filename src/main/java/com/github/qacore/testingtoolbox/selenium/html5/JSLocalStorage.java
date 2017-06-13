@@ -26,6 +26,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.ManagedWebDriverContex
  * @see ManagedWebDriverContext
  *
  * @since 1.2.0
+ * 
  */
 public class JSLocalStorage extends ManagedWebDriverContext implements LocalStorage {
 
