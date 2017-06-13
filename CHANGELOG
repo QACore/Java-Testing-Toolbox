@@ -1,3 +1,10 @@
+v1.2.0
+======
+
+IMPORTANT INCLUSIONS
+
+* com.github.qacore.testingtoolbox.selenium.parallel.ManagedWebDriverContext
+
 v1.1.2 (2017-06-12)
 ======
 
