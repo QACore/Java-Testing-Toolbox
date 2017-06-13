@@ -5,6 +5,10 @@ IMPORTANT INCLUSIONS
 
 * com.github.qacore.testingtoolbox.selenium.parallel.ManagedWebDriverContext
 
+IMPORTANT INCLUSIONS (Selenium HTML 5 Support)
+
+* com.github.qacore.testingtoolbox.selenium.html5.JSLocalStorage
+
 IMPORTANT CHANGES
 
 * Moved com.github.qacore.testingtoolbox.patterns.pageobjects.* to com.github.qacore.testingtoolbox.selenium.support.pageobjects.*
