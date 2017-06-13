@@ -3,8 +3,6 @@ package com.github.qacore.testingtoolbox.selenium.parallel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;
 
-import com.github.qacore.testingtoolbox.managers.WebDriverManager;
-
 /**
  * Managed {@link WebDriver} parallel context.
  * <p>

@@ -1,4 +1,4 @@
-package com.github.qacore.testingtoolbox.managers;
+package com.github.qacore.testingtoolbox.selenium.parallel;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;

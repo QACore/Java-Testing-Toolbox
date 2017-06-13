@@ -1,4 +1,4 @@
-package com.github.qacore.testingtoolbox.patterns.pageobjects;
+package com.github.qacore.testingtoolbox.selenium.support.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;

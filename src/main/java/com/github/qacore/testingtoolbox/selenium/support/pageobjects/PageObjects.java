@@ -1,9 +1,9 @@
-package com.github.qacore.testingtoolbox.patterns.pageobjects;
+package com.github.qacore.testingtoolbox.selenium.support.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;
 
-import com.github.qacore.testingtoolbox.managers.WebDriverManager;
+import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
 
 /**
  * This interface indicates that the classes executes the basic actions of the <b>Page Object</b> pattern.
