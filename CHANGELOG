@@ -10,6 +10,7 @@ IMPORTANT INCLUSIONS (Selenium HTML 5 Support)
 * com.github.qacore.testingtoolbox.selenium.html5.JSLocalStorage
 * com.github.qacore.testingtoolbox.selenium.html5.JSApplicationCache
 * com.github.qacore.testingtoolbox.selenium.html5.JSSessionStorage
+* com.github.qacore.testingtoolbox.selenium.html5.JSWebStorage
 
 IMPORTANT CHANGES
 
