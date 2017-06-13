@@ -1,14 +1,12 @@
 package com.github.qacore.testingtoolbox.selenium.parallel;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;
-
-import com.github.qacore.testingtoolbox.selenium.parallel.ManagedWebDriverContext;
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
 
 import support.Mock;
 
@@ -63,6 +61,41 @@ public class ManagedWebDriverContextTest {
 
         assertEquals(wrapsDriver, managedWebDriverContext.getDriverContext());
         assertEquals(webDriver, managedWebDriverContext.getDriverContext().getWrappedDriver());
+    }
+    
+    @Test
+    public void setAndGetDriverContextTest() {
+        ManagedWebDriverContext managedWebDriverContext = new ManagedWebDriverContext();
+        
+        managedWebDriverContext.setDriverContext(null);
+        assertNull(managedWebDriverContext.getDriverContext());
+        
+        WebDriver webDriver = Mock.getWebDriver();
+        WrapsDriver wrapsDriver = Mock.wrapsDriver(webDriver);
+        
+        managedWebDriverContext.setDriverContext(wrapsDriver);
+        
+        assertEquals(wrapsDriver, managedWebDriverContext.getDriverContext());
+        assertEquals(webDriver, managedWebDriverContext.getDriverContext().getWrappedDriver());
+        assertEquals(webDriver, managedWebDriverContext.getWrappedDriver());
+    }
+
+    @Test
+    public void toStringTest() {
+        ManagedWebDriverContext managedWebDriverContext = new ManagedWebDriverContext(Mock.wrapsDriver(Mock.getWebDriver()));
+        assertEquals("ManagedWebDriverContext [driverContext=" + managedWebDriverContext.getDriverContext() + "]", managedWebDriverContext.toString());
+
+        managedWebDriverContext = new ManagedWebDriverContext((WrapsDriver) null);
+        assertEquals("ManagedWebDriverContext [driverContext=" + managedWebDriverContext.getDriverContext() + "]", managedWebDriverContext.toString());
+
+        managedWebDriverContext = new ManagedWebDriverContext(Mock.getWebDriver());
+        assertEquals("ManagedWebDriverContext [driverContext=" + managedWebDriverContext.getDriverContext() + "]", managedWebDriverContext.toString());
+
+        managedWebDriverContext = new ManagedWebDriverContext((WebDriver) null);
+        assertEquals("ManagedWebDriverContext [driverContext=" + managedWebDriverContext.getDriverContext() + "]", managedWebDriverContext.toString());
+
+        managedWebDriverContext = new ManagedWebDriverContext();
+        assertEquals("ManagedWebDriverContext [driverContext=" + managedWebDriverContext.getDriverContext() + "]", managedWebDriverContext.toString());
     }
 
 }
