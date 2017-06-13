@@ -26,6 +26,7 @@ import org.junit.runners.model.RunnerScheduler;
 public class ParallelScheduler implements RunnerScheduler {
 
     public static final ExecutorService EXECUTOR_SERVICE;
+    public static final int             TEST_THREADS_COUNT;
 
     static {
         BigDecimal availableProcessors = new BigDecimal(String.valueOf(Runtime.getRuntime().availableProcessors()));
@@ -36,7 +37,8 @@ public class ParallelScheduler implements RunnerScheduler {
         if (threads < 1)
             threads = 1;
 
-        EXECUTOR_SERVICE = Executors.newFixedThreadPool(threads, new ThreadFactory() {
+        TEST_THREADS_COUNT = threads;
+        EXECUTOR_SERVICE = Executors.newFixedThreadPool(TEST_THREADS_COUNT, new ThreadFactory() {
 
             @Override
             public Thread newThread(Runnable r) {
