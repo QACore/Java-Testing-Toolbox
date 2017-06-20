@@ -1,3 +1,16 @@
+v1.3.0
+
+IMPORTANT INCLUSIONS (Global configuration)
+
+* com.github.qacore.testingtoolbox.JavaTestingToolbox
+* com.github.qacore.testingtoolbox.configuration.JavaTestingToolboxConfiguration
+* com.github.qacore.testingtoolbox.configuration.base.IJavaTestingToolboxConfiguration
+
+IMPORTANT INCLUSIONS (JUnit configuration)
+
+* com.github.qacore.testingtoolbox.configuration.JUnitConfiguration
+* com.github.qacore.testingtoolbox.configuration.base.IJUnitConfiguration
+
 v1.2.0 (2017-06-13)
 ======
 

@@ -1,6 +1,5 @@
 package com.github.qacore.testingtoolbox.junit.runners;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -9,6 +8,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
 import org.junit.runners.model.RunnerScheduler;
+
+import com.github.qacore.testingtoolbox.JavaTestingToolbox;
 
 /**
  * Support scheduler for parallel tests.
@@ -25,31 +26,25 @@ import org.junit.runners.model.RunnerScheduler;
  */
 public class ParallelScheduler implements RunnerScheduler {
 
-    public static final ExecutorService EXECUTOR_SERVICE;
-    public static final int             TEST_THREADS_COUNT;
+    private static ExecutorService EXECUTOR_SERVICE;
 
-    static {
-        BigDecimal availableProcessors = new BigDecimal(String.valueOf(Runtime.getRuntime().availableProcessors()));
-        BigDecimal parallelTestThreadsPerCore = new BigDecimal(System.getProperty("toolbox.parallelTestThreadsPerCore", "1"));
-        BigDecimal availableThreads = availableProcessors.multiply(parallelTestThreadsPerCore).setScale(0, BigDecimal.ROUND_HALF_EVEN);
-        int threads = availableThreads.intValue();
+    protected static synchronized final ExecutorService getExecutorService() {
+        if (EXECUTOR_SERVICE == null) {
+            EXECUTOR_SERVICE = Executors.newFixedThreadPool(JavaTestingToolbox.getConfiguration().junit().getTotalTestThreads(), new ThreadFactory() {
 
-        if (threads < 1)
-            threads = 1;
+                @Override
+                public Thread newThread(Runnable r) {
+                    Thread thread = Executors.defaultThreadFactory().newThread(r);
+                    thread.setName("JUnit-" + thread.getName());
+                    thread.setDaemon(true);
 
-        TEST_THREADS_COUNT = threads;
-        EXECUTOR_SERVICE = Executors.newFixedThreadPool(TEST_THREADS_COUNT, new ThreadFactory() {
+                    return thread;
+                }
 
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread thread = Executors.defaultThreadFactory().newThread(r);
-                thread.setName("JUnit-" + thread.getName());
-                thread.setDaemon(true);
+            });
+        }
 
-                return thread;
-            }
-
-        });
+        return EXECUTOR_SERVICE;
     }
 
     private List<Callable<Void>> childStatements = new ArrayList<>();
@@ -71,7 +66,7 @@ public class ParallelScheduler implements RunnerScheduler {
     @Override
     public void finished() {
         try {
-            EXECUTOR_SERVICE.invokeAll(this.getChildStatements());
+            ParallelScheduler.getExecutorService().invokeAll(this.getChildStatements());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
