@@ -9,10 +9,14 @@ import java.lang.reflect.Modifier;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+
+import com.github.qacore.testingtoolbox.junit.runners.Parallel;
 
 import support.Mock;
 
+@RunWith(Parallel.class)
 public class WebDriverManagerTest {
 
     @Before

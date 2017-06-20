@@ -3,11 +3,14 @@ package com.github.qacore.testingtoolbox.selenium.support.pageobjects;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;
 
+import com.github.qacore.testingtoolbox.junit.runners.Parallel;
 import com.github.qacore.testingtoolbox.selenium.support.pageobjects.AbstractPageObjects;
 
+@RunWith(Parallel.class)
 public class AbstractPageObjectsTest {
 
     @Test

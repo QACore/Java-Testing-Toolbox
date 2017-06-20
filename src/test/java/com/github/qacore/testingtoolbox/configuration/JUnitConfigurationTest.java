@@ -3,7 +3,11 @@ package com.github.qacore.testingtoolbox.configuration;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+import com.github.qacore.testingtoolbox.junit.runners.Parallel;
+
+@RunWith(Parallel.class)
 public class JUnitConfigurationTest {
 
     @Test
