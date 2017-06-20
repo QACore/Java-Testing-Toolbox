@@ -30,7 +30,6 @@ public final class JavaTestingToolbox {
      * Get the global Java Testing Toolbox configuration.
      * 
      * @return The global Java Testing Toolbox configuration.
-     * 
      */
     public static IJavaTestingToolboxConfiguration getConfiguration() {
         return configuration;
