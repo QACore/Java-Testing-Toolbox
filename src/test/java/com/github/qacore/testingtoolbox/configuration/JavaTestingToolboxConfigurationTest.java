@@ -22,7 +22,7 @@ public class JavaTestingToolboxConfigurationTest {
     public void getAdditionalPropertiesTest() {
         JavaTestingToolboxConfiguration configuration = new JavaTestingToolboxConfiguration();
 
-        assertNotNull(configuration.getAdditionalProperties());
+        assertNotNull(configuration.additionalProperties());
     }
 
     @Test

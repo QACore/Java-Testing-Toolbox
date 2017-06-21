@@ -34,6 +34,26 @@ public final class JavaTestingToolbox {
         return configuration;
     }
 
+    /**
+     * Set the global Java Testing Toolbox configuration.
+     * 
+     * @param configuration
+     *            The global Java Testing Toolbox configuration.
+     * 
+     * @return The previous configuration.
+     */
+    public static JavaTestingToolboxConfiguration setConfiguration(JavaTestingToolboxConfiguration configuration) {
+        JavaTestingToolboxConfiguration previousConfiguration = JavaTestingToolbox.configuration;
+
+        if (configuration == null) {
+            JavaTestingToolbox.configuration = new JavaTestingToolboxConfiguration();
+        } else {
+            JavaTestingToolbox.configuration = configuration;
+        }
+
+        return previousConfiguration;
+    }
+
     private JavaTestingToolbox() {
 
     }

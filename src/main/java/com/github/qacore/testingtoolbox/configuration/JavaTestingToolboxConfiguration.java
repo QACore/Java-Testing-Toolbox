@@ -23,16 +23,20 @@ import lombok.ToString;
  *
  */
 @ToString
-public class JavaTestingToolboxConfiguration implements HasAdditionalProperties {
+public class JavaTestingToolboxConfiguration extends AdditionalProperties<Object, Object> {
 
     private JUnitConfiguration    junit;
     private SeleniumConfiguration selenium;
-    private Map<Object, Object>   additionalProperties;
+
+    public JavaTestingToolboxConfiguration(Map<Object, Object> additionalProperties) {
+        super(additionalProperties);
+
+        this.junit = new JUnitConfiguration();
+        this.selenium = new SeleniumConfiguration();
+    }
 
     public JavaTestingToolboxConfiguration() {
-        junit = new JUnitConfiguration();
-        selenium = new SeleniumConfiguration();
-        additionalProperties = new HashMap<>();
+        this(new HashMap<>());
     }
 
     /**
@@ -45,6 +49,24 @@ public class JavaTestingToolboxConfiguration implements HasAdditionalProperties 
     }
 
     /**
+     * Set the current JUnit configuration.
+     * 
+     * @param junit
+     *            The JUnit configuration.
+     * 
+     * @return Itself.
+     */
+    public JavaTestingToolboxConfiguration junit(JUnitConfiguration junit) {
+        if (junit == null) {
+            junit = new JUnitConfiguration();
+        } else {
+            this.junit = junit;
+        }
+
+        return this;
+    }
+
+    /**
      * Get the current Selenium configuration.
      * 
      * @return The Selenium configuration.
@@ -54,11 +76,21 @@ public class JavaTestingToolboxConfiguration implements HasAdditionalProperties 
     }
 
     /**
-     * {@inheritDoc}
+     * Set the current Selenium configuration.
+     * 
+     * @param selenium
+     *            The Selenium configuration.
+     * 
+     * @return Itself.
      */
-    @Override
-    public Map<Object, Object> getAdditionalProperties() {
-        return additionalProperties;
+    public JavaTestingToolboxConfiguration selenium(SeleniumConfiguration selenium) {
+        if (selenium == null) {
+            selenium = new SeleniumConfiguration();
+        } else {
+            this.selenium = selenium;
+        }
+
+        return this;
     }
 
 }

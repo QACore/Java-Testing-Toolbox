@@ -24,16 +24,20 @@ import lombok.ToString;
  *
  */
 @ToString
-public class JUnitConfiguration implements HasAdditionalProperties {
+public class JUnitConfiguration extends AdditionalProperties<Object, Object> {
 
-    public static final String  PARALLEL_TEST_THREADS_PER_CORE = "toolbox.junit.parallelTestThreadsPerCore";
+    public static final String PARALLEL_TEST_THREADS_PER_CORE = "toolbox.junit.parallelTestThreadsPerCore";
 
-    private double              parallelTestThreadsPerCore;
-    private Map<Object, Object> additionalProperties;
+    private double             parallelTestThreadsPerCore;
+
+    public JUnitConfiguration(Map<Object, Object> additionalProperties) {
+        super(additionalProperties);
+
+        parallelTestThreadsPerCore = Double.parseDouble(System.getProperty(PARALLEL_TEST_THREADS_PER_CORE, "1"));
+    }
 
     public JUnitConfiguration() {
-        parallelTestThreadsPerCore = Double.parseDouble(System.getProperty(PARALLEL_TEST_THREADS_PER_CORE, "1"));
-        additionalProperties = new HashMap<>();
+        this(new HashMap<>());
     }
 
     public double getParallelTestThreadsPerCore() {
@@ -61,14 +65,6 @@ public class JUnitConfiguration implements HasAdditionalProperties {
         }
 
         return (int) parallelTestThreadsPerCore;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Map<Object, Object> getAdditionalProperties() {
-        return additionalProperties;
     }
 
 }

@@ -1,3 +1,21 @@
+v1.4.0 (2017-06-21)
+======
+
+IMPORTANT INCLUSIONS (Selenium configuration)
+
+Now we have global selenium configuration in JavaTestingToolbox.getConfiguration().selenium()
+
+* com.github.qacore.testingtoolbox.configuration.selenium.AbstractWebDriverConfiguration
+
+* com.github.qacore.testingtoolbox.configuration.selenium.ChromeConfiguration
+* com.github.qacore.testingtoolbox.configuration.selenium.EdgeConfiguration
+* com.github.qacore.testingtoolbox.configuration.selenium.FirefoxConfiguration
+* com.github.qacore.testingtoolbox.configuration.selenium.HtmlUnitConfiguration
+* com.github.qacore.testingtoolbox.configuration.selenium.IEConfiguration
+* com.github.qacore.testingtoolbox.configuration.selenium.OperaConfiguration
+* com.github.qacore.testingtoolbox.configuration.selenium.PhantomJSConfiguration
+* com.github.qacore.testingtoolbox.configuration.selenium.SafariConfiguration
+
 v1.3.0 (2017-06-20)
 ======
 
