@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.github.qacore.testingtoolbox.JavaTestingToolbox;
-import com.github.qacore.testingtoolbox.configuration.base.ISeleniumConfiguration;
 
 import lombok.ToString;
 
@@ -26,9 +25,9 @@ import lombok.ToString;
 @ToString
 public class JavaTestingToolboxConfiguration implements HasAdditionalProperties {
 
-    private JUnitConfiguration     junit;
-    private ISeleniumConfiguration selenium;
-    private Map<Object, Object>    additionalProperties;
+    private JUnitConfiguration    junit;
+    private SeleniumConfiguration selenium;
+    private Map<Object, Object>   additionalProperties;
 
     public JavaTestingToolboxConfiguration() {
         junit = new JUnitConfiguration();
@@ -50,7 +49,7 @@ public class JavaTestingToolboxConfiguration implements HasAdditionalProperties 
      * 
      * @return The Selenium configuration.
      */
-    public ISeleniumConfiguration selenium() {
+    public SeleniumConfiguration selenium() {
         return selenium;
     }
 
