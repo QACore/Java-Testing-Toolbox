@@ -1,6 +1,12 @@
 # Java Testing Toolbox
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.qacore/java-testing-toolbox.svg)](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.qacore.java-testing-toolbox) [![Build Status](https://travis-ci.org/QACore/Java-Testing-Toolbox.svg?branch=master)](https://travis-ci.org/QACore/Java-Testing-Toolbox)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.qacore/java-testing-toolbox.svg)](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.qacore.java-testing-toolbox) 
+[![Build Status](https://travis-ci.org/QACore/Java-Testing-Toolbox.svg?branch=master)](https://travis-ci.org/QACore/Java-Testing-Toolbox)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/QACore/Java-Testing-Toolbox/blob/master/LICENSE.txt)
+
+## Full Documentation
+
+See the [Wiki](https://github.com/QACore/Java-Testing-Toolbox/wiki) for full documentation, examples, operational details and other information.
 
 ## Continuous Integration Builds
 
