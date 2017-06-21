@@ -2,6 +2,8 @@ package com.github.qacore.testingtoolbox.configuration.base;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Map;
+
 import org.junit.Test;
 
 public class IJUnitConfigurationTest {
@@ -14,6 +16,11 @@ public class IJUnitConfigurationTest {
             public double getParallelTestThreadsPerCore() {
                 return 0;
             }
+            
+            @Override
+            public Map<Object, Object> getAdditionalProperties() {
+                return null;
+            }
 
         };
 
@@ -25,6 +32,11 @@ public class IJUnitConfigurationTest {
             public double getParallelTestThreadsPerCore() {
                 // 0.5 total test threads
                 return 1 / (Runtime.getRuntime().availableProcessors() / 0.5);
+            }
+            
+            @Override
+            public Map<Object, Object> getAdditionalProperties() {
+                return null;
             }
 
         };

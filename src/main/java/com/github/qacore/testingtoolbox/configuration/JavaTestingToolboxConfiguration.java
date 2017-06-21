@@ -1,8 +1,13 @@
 package com.github.qacore.testingtoolbox.configuration;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.github.qacore.testingtoolbox.JavaTestingToolbox;
 import com.github.qacore.testingtoolbox.configuration.base.IJUnitConfiguration;
 import com.github.qacore.testingtoolbox.configuration.base.IJavaTestingToolboxConfiguration;
+
+import lombok.ToString;
 
 /**
  * This class contains the {@link JavaTestingToolbox#getConfiguration() Java Testing Toolbox configuration}.
@@ -20,12 +25,15 @@ import com.github.qacore.testingtoolbox.configuration.base.IJavaTestingToolboxCo
  * @since 1.3.0
  *
  */
+@ToString
 public class JavaTestingToolboxConfiguration implements IJavaTestingToolboxConfiguration {
 
     private IJUnitConfiguration junit;
+    private Map<Object, Object> additionalProperties;
 
     public JavaTestingToolboxConfiguration() {
         junit = new JUnitConfiguration();
+        additionalProperties = new HashMap<>();
     }
 
     /**
@@ -34,6 +42,14 @@ public class JavaTestingToolboxConfiguration implements IJavaTestingToolboxConfi
     @Override
     public IJUnitConfiguration junit() {
         return junit;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Map<Object, Object> getAdditionalProperties() {
+        return additionalProperties;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.github.qacore.testingtoolbox.configuration.base;
 
+import java.util.Map;
+
 import com.github.qacore.testingtoolbox.JavaTestingToolbox;
 import com.github.qacore.testingtoolbox.configuration.JUnitConfiguration;
 import com.github.qacore.testingtoolbox.configuration.JavaTestingToolboxConfiguration;
@@ -21,7 +23,7 @@ import com.github.qacore.testingtoolbox.configuration.JavaTestingToolboxConfigur
  * @since 1.3.0
  *
  */
-public interface IJUnitConfiguration {
+public interface IJUnitConfiguration extends HasAdditionalProperties {
 
     public static final String PARALLEL_TEST_THREADS_PER_CORE = "toolbox.junit.parallelTestThreadsPerCore";
 
@@ -45,5 +47,11 @@ public interface IJUnitConfiguration {
 
         return (int) parallelTestThreadsPerCore;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Map<Object, Object> getAdditionalProperties();
 
 }

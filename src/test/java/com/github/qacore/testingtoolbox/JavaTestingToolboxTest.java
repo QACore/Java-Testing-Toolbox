@@ -29,7 +29,6 @@ public class JavaTestingToolboxTest {
     @Test
     public void getConfigurationTest() {
         assertNotNull(JavaTestingToolbox.getConfiguration());
-        assertNotNull(JavaTestingToolbox.getConfiguration().junit());
     }
 
 }

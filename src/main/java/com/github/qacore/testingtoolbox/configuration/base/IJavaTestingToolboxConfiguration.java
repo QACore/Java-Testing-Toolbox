@@ -1,5 +1,7 @@
 package com.github.qacore.testingtoolbox.configuration.base;
 
+import java.util.Map;
+
 import com.github.qacore.testingtoolbox.JavaTestingToolbox;
 import com.github.qacore.testingtoolbox.configuration.JavaTestingToolboxConfiguration;
 
@@ -19,7 +21,7 @@ import com.github.qacore.testingtoolbox.configuration.JavaTestingToolboxConfigur
  * @since 1.3.0
  *
  */
-public interface IJavaTestingToolboxConfiguration {
+public interface IJavaTestingToolboxConfiguration extends HasAdditionalProperties {
 
     /**
      * Get the current JUnit configuration.
@@ -27,5 +29,11 @@ public interface IJavaTestingToolboxConfiguration {
      * @return The JUnit configuration.
      */
     public IJUnitConfiguration junit();
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Map<Object, Object> getAdditionalProperties();
 
 }

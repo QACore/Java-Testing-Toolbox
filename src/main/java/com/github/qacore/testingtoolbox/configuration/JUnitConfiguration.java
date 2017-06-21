@@ -1,7 +1,12 @@
 package com.github.qacore.testingtoolbox.configuration;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.github.qacore.testingtoolbox.JavaTestingToolbox;
 import com.github.qacore.testingtoolbox.configuration.base.IJUnitConfiguration;
+
+import lombok.ToString;
 
 /**
  * This class contains the JUnit configuration.
@@ -20,12 +25,15 @@ import com.github.qacore.testingtoolbox.configuration.base.IJUnitConfiguration;
  * @since 1.3.0
  *
  */
+@ToString
 public class JUnitConfiguration implements IJUnitConfiguration {
 
-    private double parallelTestThreadsPerCore;
+    private double              parallelTestThreadsPerCore;
+    private Map<Object, Object> additionalProperties;
 
     public JUnitConfiguration() {
-        this.parallelTestThreadsPerCore = Double.parseDouble(System.getProperty(PARALLEL_TEST_THREADS_PER_CORE, "1"));
+        parallelTestThreadsPerCore = Double.parseDouble(System.getProperty(PARALLEL_TEST_THREADS_PER_CORE, "1"));
+        additionalProperties = new HashMap<>();
     }
 
     @Override
@@ -37,9 +45,12 @@ public class JUnitConfiguration implements IJUnitConfiguration {
         this.parallelTestThreadsPerCore = parallelTestThreadsPerCore;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public String toString() {
-        return "JUnitConfiguration [parallelTestThreadsPerCore=" + parallelTestThreadsPerCore + "]";
+    public Map<Object, Object> getAdditionalProperties() {
+        return additionalProperties;
     }
 
 }
