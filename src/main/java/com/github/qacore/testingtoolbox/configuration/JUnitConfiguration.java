@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.github.qacore.testingtoolbox.JavaTestingToolbox;
-import com.github.qacore.testingtoolbox.configuration.base.IJUnitConfiguration;
 
 import lombok.ToString;
 
@@ -20,13 +19,14 @@ import lombok.ToString;
  *
  * @see JavaTestingToolbox#getConfiguration()
  * @see JavaTestingToolboxConfiguration#junit()
- * @see IJUnitConfiguration
  *
  * @since 1.3.0
  *
  */
 @ToString
-public class JUnitConfiguration implements IJUnitConfiguration {
+public class JUnitConfiguration implements HasAdditionalProperties {
+
+    public static final String  PARALLEL_TEST_THREADS_PER_CORE = "toolbox.junit.parallelTestThreadsPerCore";
 
     private double              parallelTestThreadsPerCore;
     private Map<Object, Object> additionalProperties;
@@ -36,13 +36,31 @@ public class JUnitConfiguration implements IJUnitConfiguration {
         additionalProperties = new HashMap<>();
     }
 
-    @Override
     public double getParallelTestThreadsPerCore() {
         return parallelTestThreadsPerCore;
     }
 
     public void setParallelTestThreadsPerCore(double parallelTestThreadsPerCore) {
         this.parallelTestThreadsPerCore = parallelTestThreadsPerCore;
+    }
+
+    /**
+     * Get total test threads.
+     * 
+     * @return The total test threads based on {@link #getParallelTestThreadsPerCore()} * available processors.
+     */
+    public int getTotalTestThreads() {
+        double parallelTestThreadsPerCore = this.getParallelTestThreadsPerCore() * Runtime.getRuntime().availableProcessors();
+
+        if (parallelTestThreadsPerCore - (int) parallelTestThreadsPerCore >= 0.5) {
+            parallelTestThreadsPerCore++;
+        }
+
+        if (parallelTestThreadsPerCore < 1) {
+            return 1;
+        }
+
+        return (int) parallelTestThreadsPerCore;
     }
 
     /**

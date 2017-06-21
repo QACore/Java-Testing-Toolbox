@@ -33,6 +33,14 @@ public class JUnitConfigurationTest {
     }
     
     @Test
+    public void getTotalTestThreadsTest() {
+        JUnitConfiguration configuration = new JUnitConfiguration();
+        
+        configuration.setParallelTestThreadsPerCore(1 / (Runtime.getRuntime().availableProcessors() / 0.5));
+        assertEquals(1, configuration.getTotalTestThreads());
+    }
+    
+    @Test
     public void getAdditionalPropertiesTest() {
         JUnitConfiguration configuration = new JUnitConfiguration();
         

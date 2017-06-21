@@ -1,4 +1,4 @@
-package com.github.qacore.testingtoolbox.configuration.base;
+package com.github.qacore.testingtoolbox.configuration;
 
 import java.util.Map;
 

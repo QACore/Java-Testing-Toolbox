@@ -1,7 +1,6 @@
 package com.github.qacore.testingtoolbox;
 
 import com.github.qacore.testingtoolbox.configuration.JavaTestingToolboxConfiguration;
-import com.github.qacore.testingtoolbox.configuration.base.IJavaTestingToolboxConfiguration;
 
 /**
  * The main class for ecosystem configuration.
@@ -13,14 +12,14 @@ import com.github.qacore.testingtoolbox.configuration.base.IJavaTestingToolboxCo
  *         <li><a href="mailto:lcdesenv@gmail.com">lcdesenv@gmail.com</a></li>
  *         </ul>
  *
- * @see IJavaTestingToolboxConfiguration
+ * @see JavaTestingToolboxConfiguration
  *
  * @since 1.3.0
  *
  */
 public final class JavaTestingToolbox {
 
-    private static IJavaTestingToolboxConfiguration configuration;
+    private static JavaTestingToolboxConfiguration configuration;
 
     static {
         configuration = new JavaTestingToolboxConfiguration();
@@ -31,7 +30,7 @@ public final class JavaTestingToolbox {
      * 
      * @return The global Java Testing Toolbox configuration.
      */
-    public static IJavaTestingToolboxConfiguration getConfiguration() {
+    public static JavaTestingToolboxConfiguration getConfiguration() {
         return configuration;
     }
 
