@@ -22,7 +22,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public class ChromeConfiguration extends AbstractWebDriverConfiguration<ChromeDriver> {
+public class ChromeConfiguration extends AbstractWebDriverConfiguration<ChromeConfiguration, ChromeDriver> {
 
     public ChromeConfiguration(Map<Object, Object> additionalProperties) {
         super(additionalProperties);
@@ -37,21 +37,13 @@ public class ChromeConfiguration extends AbstractWebDriverConfiguration<ChromeDr
      */
     @Override
     public ChromeDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.getDefaultCapabilities();
+        Capabilities capabilities = this.mergeCapabilities(other, null);
         ChromeDriver driver;
 
         if (capabilities == null) {
-            if (other == null) {
-                driver = new ChromeDriver();
-            } else {
-                driver = new ChromeDriver(other);
-            }
+            driver = new ChromeDriver();
         } else {
-            if (other == null) {
-                driver = new ChromeDriver(capabilities);
-            } else {
-                driver = new ChromeDriver(capabilities.merge(other));
-            }
+            driver = new ChromeDriver(capabilities);
         }
 
         if (managed) {

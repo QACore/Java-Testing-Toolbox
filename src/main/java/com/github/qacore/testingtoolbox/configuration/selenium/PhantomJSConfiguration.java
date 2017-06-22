@@ -22,7 +22,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public class PhantomJSConfiguration extends AbstractWebDriverConfiguration<PhantomJSDriver> {
+public class PhantomJSConfiguration extends AbstractWebDriverConfiguration<PhantomJSConfiguration, PhantomJSDriver> {
 
     public PhantomJSConfiguration(Map<Object, Object> additionalProperties) {
         super(additionalProperties);
@@ -37,21 +37,13 @@ public class PhantomJSConfiguration extends AbstractWebDriverConfiguration<Phant
      */
     @Override
     public PhantomJSDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.getDefaultCapabilities();
+        Capabilities capabilities = this.mergeCapabilities(other, null);
         PhantomJSDriver driver;
-
+        
         if (capabilities == null) {
-            if (other == null) {
-                driver = new PhantomJSDriver();
-            } else {
-                driver = new PhantomJSDriver(other);
-            }
+            driver = new PhantomJSDriver();
         } else {
-            if (other == null) {
-                driver = new PhantomJSDriver(capabilities);
-            } else {
-                driver = new PhantomJSDriver(capabilities.merge(other));
-            }
+            driver = new PhantomJSDriver(capabilities);
         }
 
         if (managed) {

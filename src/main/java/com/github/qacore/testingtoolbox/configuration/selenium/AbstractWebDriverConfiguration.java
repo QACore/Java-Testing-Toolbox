@@ -14,10 +14,13 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * 
  * @author Leonardo Carmona da Silva
  *         <ul>
- *         <li><a href="https://br.linkedin.com/in/l3ocarmona">https://br.linkedin.com/in/l3ocarmona</a></li>
- *         <li><a href="https://github.com/leocarmona">https://github.com/leocarmona</a></li>
+ *         <li><a href= "https://br.linkedin.com/in/l3ocarmona">https://br.linkedin.com/in/l3ocarmona</a></li>
+ *         <li><a href= "https://github.com/leocarmona">https://github.com/leocarmona</a></li>
  *         <li><a href="mailto:lcdesenv@gmail.com">lcdesenv@gmail.com</a></li>
  *         </ul>
+ * 
+ * @param <I>
+ *            Itself class for fluent pattern.
  * 
  * @param <T>
  *            The driver to be configured.
@@ -25,7 +28,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public abstract class AbstractWebDriverConfiguration<T extends WebDriver> extends AdditionalProperties<Object, Object> {
+public abstract class AbstractWebDriverConfiguration<I extends AbstractWebDriverConfiguration<I, T>, T extends WebDriver> extends AdditionalProperties<Object, Object> {
 
     private Capabilities defaultCapabilities;
 
@@ -77,14 +80,12 @@ public abstract class AbstractWebDriverConfiguration<T extends WebDriver> extend
      * @param defaultCapabilities
      *            The default driver capabilities.
      * 
-     * @return The previous capabilities.
+     * @return Itself.
      */
-    public Capabilities setDefaultCapabilities(Capabilities defaultCapabilities) {
-        Capabilities previousCapabilities = this.defaultCapabilities;
-
+    public I setDefaultCapabilities(Capabilities defaultCapabilities) {
         this.defaultCapabilities = defaultCapabilities;
 
-        return previousCapabilities;
+        return this.itself();
     }
 
     /**
@@ -102,14 +103,16 @@ public abstract class AbstractWebDriverConfiguration<T extends WebDriver> extend
      * @param path
      *            The driver's path.
      * 
-     * @return The previous driver's path.
+     * @return Itself.
      */
-    public String setPath(String path) {
+    public I setPath(String path) {
         if (path == null) {
-            return System.clearProperty(this.getPathProperty());
+            System.clearProperty(this.getPathProperty());
+        } else {
+            System.setProperty(this.getPathProperty(), path);
         }
 
-        return System.setProperty(this.getPathProperty(), path);
+        return this.itself();
     }
 
     /**
@@ -118,5 +121,44 @@ public abstract class AbstractWebDriverConfiguration<T extends WebDriver> extend
      * @return The driver's path property.
      */
     public abstract String getPathProperty();
+
+    /**
+     * Merge two {@link Capabilities} (default capabilities and other) together and return the union of the two as a new {@link Capabilities} instance. Capabilities from {@code other} will override those in {@code this}.
+     * 
+     * @param other
+     *            Other capabilities.
+     * 
+     * @param defaultIfNull
+     *            Default capabilities if null return.
+     * 
+     * @return The merged capabilities.
+     */
+    protected Capabilities mergeCapabilities(Capabilities other, Capabilities defaultIfNull) {
+        Capabilities capabilities = this.getDefaultCapabilities();
+
+        if (capabilities == null) {
+            if (other != null) {
+                return other;
+            }
+        } else {
+            if (other == null) {
+                return capabilities;
+            } else {
+                return capabilities.merge(other);
+            }
+        }
+
+        return defaultIfNull;
+    }
+
+    /**
+     * Get itself for fluent pattern.
+     * 
+     * @return Itself for fluent pattern.
+     */
+    @SuppressWarnings("unchecked")
+    protected I itself() {
+        return (I) this;
+    }
 
 }

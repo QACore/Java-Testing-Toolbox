@@ -21,7 +21,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public class SafariConfiguration extends AbstractWebDriverConfiguration<SafariDriver> {
+public class SafariConfiguration extends AbstractWebDriverConfiguration<SafariConfiguration, SafariDriver> {
 
     public SafariConfiguration(Map<Object, Object> additionalProperties) {
         super(additionalProperties);
@@ -36,21 +36,13 @@ public class SafariConfiguration extends AbstractWebDriverConfiguration<SafariDr
      */
     @Override
     public SafariDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.getDefaultCapabilities();
+        Capabilities capabilities = this.mergeCapabilities(other, null);
         SafariDriver driver;
-
+        
         if (capabilities == null) {
-            if (other == null) {
-                driver = new SafariDriver();
-            } else {
-                driver = new SafariDriver(other);
-            }
+            driver = new SafariDriver();
         } else {
-            if (other == null) {
-                driver = new SafariDriver(capabilities);
-            } else {
-                driver = new SafariDriver(capabilities.merge(other));
-            }
+            driver = new SafariDriver(capabilities);
         }
 
         if (managed) {

@@ -22,7 +22,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public class InternetExplorerConfiguration extends AbstractWebDriverConfiguration<InternetExplorerDriver> {
+public class InternetExplorerConfiguration extends AbstractWebDriverConfiguration<InternetExplorerConfiguration, InternetExplorerDriver> {
 
     public InternetExplorerConfiguration(Map<Object, Object> additionalProperties) {
         super(additionalProperties);
@@ -37,21 +37,13 @@ public class InternetExplorerConfiguration extends AbstractWebDriverConfiguratio
      */
     @Override
     public InternetExplorerDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.getDefaultCapabilities();
+        Capabilities capabilities = this.mergeCapabilities(other, null);
         InternetExplorerDriver driver;
-
+        
         if (capabilities == null) {
-            if (other == null) {
-                driver = new InternetExplorerDriver();
-            } else {
-                driver = new InternetExplorerDriver(other);
-            }
+            driver = new InternetExplorerDriver();
         } else {
-            if (other == null) {
-                driver = new InternetExplorerDriver(capabilities);
-            } else {
-                driver = new InternetExplorerDriver(capabilities.merge(other));
-            }
+            driver = new InternetExplorerDriver(capabilities);
         }
 
         if (managed) {

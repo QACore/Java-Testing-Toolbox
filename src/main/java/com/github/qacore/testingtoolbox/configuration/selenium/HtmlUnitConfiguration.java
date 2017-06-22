@@ -21,7 +21,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public class HtmlUnitConfiguration extends AbstractWebDriverConfiguration<HtmlUnitDriver> {
+public class HtmlUnitConfiguration extends AbstractWebDriverConfiguration<HtmlUnitConfiguration, HtmlUnitDriver> {
 
     public HtmlUnitConfiguration(Map<Object, Object> additionalProperties) {
         super(additionalProperties);
@@ -36,21 +36,13 @@ public class HtmlUnitConfiguration extends AbstractWebDriverConfiguration<HtmlUn
      */
     @Override
     public HtmlUnitDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.getDefaultCapabilities();
+        Capabilities capabilities = this.mergeCapabilities(other, null);
         HtmlUnitDriver driver;
-
+        
         if (capabilities == null) {
-            if (other == null) {
-                driver = new HtmlUnitDriver();
-            } else {
-                driver = new HtmlUnitDriver(other);
-            }
+            driver = new HtmlUnitDriver();
         } else {
-            if (other == null) {
-                driver = new HtmlUnitDriver(capabilities);
-            } else {
-                driver = new HtmlUnitDriver(capabilities.merge(other));
-            }
+            driver = new HtmlUnitDriver(capabilities);
         }
 
         if (managed) {

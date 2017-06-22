@@ -22,7 +22,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public class EdgeConfiguration extends AbstractWebDriverConfiguration<EdgeDriver> {
+public class EdgeConfiguration extends AbstractWebDriverConfiguration<EdgeConfiguration, EdgeDriver> {
 
     public EdgeConfiguration(Map<Object, Object> additionalProperties) {
         super(additionalProperties);
@@ -37,21 +37,13 @@ public class EdgeConfiguration extends AbstractWebDriverConfiguration<EdgeDriver
      */
     @Override
     public EdgeDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.getDefaultCapabilities();
+        Capabilities capabilities = this.mergeCapabilities(other, null);
         EdgeDriver driver;
-
+        
         if (capabilities == null) {
-            if (other == null) {
-                driver = new EdgeDriver();
-            } else {
-                driver = new EdgeDriver(other);
-            }
+            driver = new EdgeDriver();
         } else {
-            if (other == null) {
-                driver = new EdgeDriver(capabilities);
-            } else {
-                driver = new EdgeDriver(capabilities.merge(other));
-            }
+            driver = new EdgeDriver(capabilities);
         }
 
         if (managed) {

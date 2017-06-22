@@ -22,7 +22,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public class OperaConfiguration extends AbstractWebDriverConfiguration<OperaDriver> {
+public class OperaConfiguration extends AbstractWebDriverConfiguration<OperaConfiguration, OperaDriver> {
 
     public OperaConfiguration(Map<Object, Object> additionalProperties) {
         super(additionalProperties);
@@ -37,21 +37,13 @@ public class OperaConfiguration extends AbstractWebDriverConfiguration<OperaDriv
      */
     @Override
     public OperaDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.getDefaultCapabilities();
+        Capabilities capabilities = this.mergeCapabilities(other, null);
         OperaDriver driver;
-
+        
         if (capabilities == null) {
-            if (other == null) {
-                driver = new OperaDriver();
-            } else {
-                driver = new OperaDriver(other);
-            }
+            driver = new OperaDriver();
         } else {
-            if (other == null) {
-                driver = new OperaDriver(capabilities);
-            } else {
-                driver = new OperaDriver(capabilities.merge(other));
-            }
+            driver = new OperaDriver(capabilities);
         }
 
         if (managed) {

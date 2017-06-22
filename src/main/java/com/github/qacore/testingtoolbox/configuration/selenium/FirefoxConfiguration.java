@@ -22,7 +22,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public class FirefoxConfiguration extends AbstractWebDriverConfiguration<FirefoxDriver> {
+public class FirefoxConfiguration extends AbstractWebDriverConfiguration<FirefoxConfiguration, FirefoxDriver> {
 
     public FirefoxConfiguration(Map<Object, Object> additionalProperties) {
         super(additionalProperties);
@@ -37,21 +37,13 @@ public class FirefoxConfiguration extends AbstractWebDriverConfiguration<Firefox
      */
     @Override
     public FirefoxDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.getDefaultCapabilities();
+        Capabilities capabilities = this.mergeCapabilities(other, null);
         FirefoxDriver driver;
-
+        
         if (capabilities == null) {
-            if (other == null) {
-                driver = new FirefoxDriver();
-            } else {
-                driver = new FirefoxDriver(other);
-            }
+            driver = new FirefoxDriver();
         } else {
-            if (other == null) {
-                driver = new FirefoxDriver(capabilities);
-            } else {
-                driver = new FirefoxDriver(capabilities.merge(other));
-            }
+            driver = new FirefoxDriver(capabilities);
         }
 
         if (managed) {
