@@ -28,7 +28,7 @@ public class ParallelScheduler implements RunnerScheduler {
 
     private static ExecutorService EXECUTOR_SERVICE;
 
-    protected static synchronized final ExecutorService getExecutorService() {
+    public static synchronized final ExecutorService getExecutorService() {
         if (EXECUTOR_SERVICE == null) {
             EXECUTOR_SERVICE = Executors.newFixedThreadPool(JavaTestingToolbox.getConfiguration().junit().getTotalTestThreads(), new ThreadFactory() {
 
