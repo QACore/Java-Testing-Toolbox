@@ -33,7 +33,7 @@ To keep up to date with the latest releases of Java Testing Toolbox, modify the 
 ## Getting Started
 
 After setting up [apache maven][mvn], you will have support for the following features:
-* **Java Testing Toolbox Configuration**
+* [**Java Testing Toolbox Configuration**](https://github.com/QACore/Java-Testing-Toolbox/wiki/Java-Testing-Toolbox-Configuration)
    * *JUnit Configuration*
    * *Selenium Configuration*
       * *Chrome*
@@ -44,14 +44,14 @@ After setting up [apache maven][mvn], you will have support for the following fe
       * *Opera*
       * *PhantomJS*
       * *Safari*
-* **JUnit**
+* [**JUnit**](https://github.com/QACore/Java-Testing-Toolbox/wiki/JUnit)
    * *Categories*
    * *Runners*
       * *Parallel*
       * *Parallel Categories*
       * *Parallel Parameterized*
       * *Parallel Suite*
-* **Selenium**
+* [**Selenium**](https://github.com/QACore/Java-Testing-Toolbox/wiki/Selenium)
    * *Parallel*
       * *WebDriver Manager*
       * *Managed WebDriver Context*
