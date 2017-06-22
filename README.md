@@ -30,6 +30,41 @@ To keep up to date with the latest releases of Java Testing Toolbox, modify the 
 </dependencies>
 ```
 
+## Getting Started
+
+After setting up [apache maven][mvn], you will have support for the following features:
+* **Java Testing Toolbox Configuration**
+   * *JUnit Configuration*
+   * *Selenium Configuration*
+      * *Chrome*
+      * *Edge*
+      * *Firefox*
+      * *HtmlUnit*
+      * *Internet Explorer*
+      * *Opera*
+      * *PhantomJS*
+      * *Safari*
+* **JUnit**
+   * *Categories*
+   * *Runners*
+      * *Parallel*
+      * *Parallel Categories*
+      * *Parallel Parameterized*
+      * *Parallel Suite*
+* **Selenium**
+   * *Parallel*
+      * *WebDriver Manager*
+      * *Managed WebDriver Context*
+   * *Page Objects Pattern*
+      * Page Objects
+      * Login Page Objects
+   * *Support*
+      * *HTML5*
+         * *Application Cache*
+         * *Local Storage*
+         * *Web Storage*
+         * *Session Storage*
+
 ## Authors
 
 * **[Leonardo Carmona da Silva]** - *Product Owner and Software Architect* - [LeoCarmona](https://github.com/LeoCarmona) on [LinkedIn](https://www.linkedin.com/in/l3ocarmona/)
@@ -39,3 +74,5 @@ See also the list of [contributors](https://github.com/QACore/Java-Testing-Toolb
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](LICENSE.txt) file for details
+
+[mvn]: https://maven.apache.org/download.cgi
