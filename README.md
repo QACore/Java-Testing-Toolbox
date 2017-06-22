@@ -4,6 +4,8 @@
 [![Build Status](https://travis-ci.org/QACore/Java-Testing-Toolbox.svg?branch=master)](https://travis-ci.org/QACore/Java-Testing-Toolbox)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/QACore/Java-Testing-Toolbox/blob/master/LICENSE.txt)
 
+This is a framework for writing maintainable [Selenium](https://github.com/SeleniumHQ/selenium), [Appium](https://github.com/appium/appium), REST API and others tests that also makes integrating much easier.
+
 ## Full Documentation
 
 See the [Wiki](https://github.com/QACore/Java-Testing-Toolbox/wiki) for full documentation, examples, operational details and other information.
@@ -14,7 +16,9 @@ See the [Wiki](https://github.com/QACore/Java-Testing-Toolbox/wiki) for full doc
 | --------- | ------- | ------ | ----------- |
 | Travis CI | Linux   | [![Build Status](https://travis-ci.org/QACore/Java-Testing-Toolbox.svg?branch=master)](https://travis-ci.org/QACore/Java-Testing-Toolbox) | Used to perform quick checks on submitted pull requests and for build matrices including JDK 8 and JDK 9 early access builds |
 
-## Maven Dependency
+## Setting up
+
+To keep up to date with the latest releases of Java Testing Toolbox, modify the following block in the pom.xml:
 
 ```xml
 <dependencies>
