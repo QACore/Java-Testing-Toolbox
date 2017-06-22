@@ -32,7 +32,7 @@ To keep up to date with the latest releases of Java Testing Toolbox, modify the 
 
 ## Getting Started
 
-After setting up [apache maven][mvn], you will have support for the following features:
+After setting up [apache maven](https://maven.apache.org/download.cgi), you will have support for the following features:
 * [**Java Testing Toolbox Configuration**](https://github.com/QACore/Java-Testing-Toolbox/wiki/Java-Testing-Toolbox-Configuration)
    * *JUnit Configuration*
    * *Selenium Configuration*
@@ -74,5 +74,3 @@ See also the list of [contributors](https://github.com/QACore/Java-Testing-Toolb
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](LICENSE.txt) file for details
-
-[mvn]: https://maven.apache.org/download.cgi
