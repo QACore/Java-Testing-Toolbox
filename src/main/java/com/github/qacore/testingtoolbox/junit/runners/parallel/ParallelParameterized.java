@@ -1,6 +1,8 @@
-package com.github.qacore.testingtoolbox.junit.runners;
+package com.github.qacore.testingtoolbox.junit.runners.parallel;
 
 import org.junit.runners.Parameterized;
+
+import com.github.qacore.testingtoolbox.junit.runners.schedulers.ParallelScheduler;
 
 /**
  * An extension of the JUnit {@link Parameterized} runner, which executes all {@code @Test} methods in parallel. Example:

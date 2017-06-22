@@ -25,7 +25,7 @@ To keep up to date with the latest releases of Java Testing Toolbox, modify the 
    <dependency>
       <groupId>com.github.qacore</groupId>
       <artifactId>java-testing-toolbox</artifactId>
-      <version>1.4.0</version>
+      <version>1.4.1</version>
    </dependency>
 </dependencies>
 ```

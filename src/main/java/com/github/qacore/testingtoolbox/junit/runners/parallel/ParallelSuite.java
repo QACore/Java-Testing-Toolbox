@@ -1,4 +1,4 @@
-package com.github.qacore.testingtoolbox.junit.runners;
+package com.github.qacore.testingtoolbox.junit.runners.parallel;
 
 import java.util.List;
 
@@ -6,6 +6,8 @@ import org.junit.runner.Runner;
 import org.junit.runners.Suite;
 import org.junit.runners.model.InitializationError;
 import org.junit.runners.model.RunnerBuilder;
+
+import com.github.qacore.testingtoolbox.junit.runners.schedulers.ParallelScheduler;
 
 /**
  * An extension of the JUnit {@link Suite} runner, which executes all {@code @Test} methods in parallel. Example:

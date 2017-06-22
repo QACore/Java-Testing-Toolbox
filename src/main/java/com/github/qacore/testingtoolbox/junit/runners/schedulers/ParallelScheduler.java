@@ -1,4 +1,4 @@
-package com.github.qacore.testingtoolbox.junit.runners;
+package com.github.qacore.testingtoolbox.junit.runners.schedulers;
 
 import java.util.ArrayList;
 import java.util.List;

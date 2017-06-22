@@ -1,7 +1,9 @@
-package com.github.qacore.testingtoolbox.junit.runners;
+package com.github.qacore.testingtoolbox.junit.runners.parallel;
 
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runners.model.RunnerBuilder;
+
+import com.github.qacore.testingtoolbox.junit.runners.schedulers.ParallelScheduler;
 
 /**
  * An extension of the JUnit {@link Enclosed} runner, which executes all {@code @Test} methods in parallel. Example:

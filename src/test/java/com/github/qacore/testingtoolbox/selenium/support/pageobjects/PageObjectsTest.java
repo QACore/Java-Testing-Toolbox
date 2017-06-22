@@ -15,7 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.github.qacore.testingtoolbox.junit.runners.Parallel;
+import com.github.qacore.testingtoolbox.junit.runners.parallel.Parallel;
 import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
 
 import support.Mock;

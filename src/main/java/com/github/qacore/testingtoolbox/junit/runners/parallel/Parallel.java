@@ -1,7 +1,9 @@
-package com.github.qacore.testingtoolbox.junit.runners;
+package com.github.qacore.testingtoolbox.junit.runners.parallel;
 
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.InitializationError;
+
+import com.github.qacore.testingtoolbox.junit.runners.schedulers.ParallelScheduler;
 
 /**
  * An extension of the JUnit {@link BlockJUnit4ClassRunner} runner, which executes all {@code @Test} methods in parallel. Example:

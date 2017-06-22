@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;
 
-import com.github.qacore.testingtoolbox.junit.runners.Parallel;
+import com.github.qacore.testingtoolbox.junit.runners.parallel.Parallel;
 
 import support.Mock;
 

@@ -1,4 +1,4 @@
 /**
- * Provides JUnit custom runner classes.
+ * Provides custom JUnit serial runners.
  */
 package com.github.qacore.testingtoolbox.junit.runners;

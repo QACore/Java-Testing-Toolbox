@@ -1,3 +1,16 @@
+v1.4.1 (2017-06-22)
+======
+
+IMPORTANT CHANGES (JUnit)
+
+* Moved com.github.qacore.testingtoolbox.junit.runners.EnclosedParallel      to com.github.qacore.testingtoolbox.junit.runners.parallel.EnclosedParallel
+* Moved com.github.qacore.testingtoolbox.junit.runners.Parallel              to com.github.qacore.testingtoolbox.junit.runners.parallel.Parallel
+* Moved com.github.qacore.testingtoolbox.junit.runners.ParallelCategories    to com.github.qacore.testingtoolbox.junit.runners.parallel.ParallelCategories
+* Moved com.github.qacore.testingtoolbox.junit.runners.ParallelParameterized to com.github.qacore.testingtoolbox.junit.runners.parallel.ParallelParameterized
+* Moved com.github.qacore.testingtoolbox.junit.runners.ParallelSuite         to com.github.qacore.testingtoolbox.junit.runners.parallel.ParallelSuite
+
+* Moved com.github.qacore.testingtoolbox.junit.runners.ParallelScheduler     to com.github.qacore.testingtoolbox.junit.runners.schedulers.ParallelScheduler
+
 v1.4.0 (2017-06-21)
 ======
 

@@ -3,7 +3,7 @@ package com.github.qacore.testingtoolbox.junit.categories;
 import org.junit.experimental.categories.Categories;
 
 import com.github.qacore.testingtoolbox.annotations.Tag;
-import com.github.qacore.testingtoolbox.junit.runners.ParallelCategories;
+import com.github.qacore.testingtoolbox.junit.runners.parallel.ParallelCategories;
 
 /**
  * Represents an uninstall test.

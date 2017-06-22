@@ -1,4 +1,4 @@
-package com.github.qacore.testingtoolbox.junit.runners;
+package com.github.qacore.testingtoolbox.junit.runners.parallel;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -10,6 +10,10 @@ import java.util.Collection;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized.Parameters;
+
+import com.github.qacore.testingtoolbox.junit.runners.parallel.ParallelParameterized;
+import com.github.qacore.testingtoolbox.junit.runners.schedulers.ParallelScheduler;
+
 import org.junit.runners.ParentRunner;
 
 import support.Fibonacci;

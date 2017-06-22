@@ -6,7 +6,7 @@ import static support.Validations.assertLombokToString;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.github.qacore.testingtoolbox.junit.runners.Parallel;
+import com.github.qacore.testingtoolbox.junit.runners.parallel.Parallel;
 
 @RunWith(Parallel.class)
 public class JavaTestingToolboxConfigurationTest {
