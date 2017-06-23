@@ -8,7 +8,7 @@ This is a framework for writing maintainable [Selenium](https://github.com/Selen
 
 ## Full Documentation
 
-Please, see our **[Website](https://qacore.github.io)** for full documentation, examples, operational details and other information.
+Please, see our **[Website](https://qacore.github.io/java-testing-toolbox)** for full documentation, examples, operational details and other information.
 
 ## Continuous Integration Builds
 
