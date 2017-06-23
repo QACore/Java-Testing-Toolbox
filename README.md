@@ -8,7 +8,7 @@ This is a framework for writing maintainable [Selenium](https://github.com/Selen
 
 ## Full Documentation
 
-Please, see our <a href="https://qacore.github.io/java-testing-toolbox" target="_blank">**Website**</a> for full documentation, examples, operational details and other information.
+Please, see our [**Website**](https://qacore.github.io/java-testing-toolbox) for full documentation, examples, operational details and other information.
 
 ## Continuous Integration Builds
 
@@ -70,7 +70,7 @@ After setting up [apache maven](https://maven.apache.org/download.cgi), you will
 Java Testing Toolbox encourages the use of Page Object and Service Object patterns for writing your test code in such a way that abstracts the functionality of the system you’re testing into it’s own layer so that: the tests interact with the page or service layer and the page or service layer interacts with the system under test.
 
 ```
-                    _________        _____________________       _____________________
+                    _________        _____________________        _____________________
                    |         |      ||                   ||      ||                   ||
  _______       /-> |  PAGES  |  ->  ||                   ||      ||                   ||
 |       |     /    |_________|      ||   JAVA TESTING    ||      ||   SYSTEM UNDER    ||
