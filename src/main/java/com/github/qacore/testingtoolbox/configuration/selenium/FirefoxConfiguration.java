@@ -7,8 +7,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.GeckoDriverService;
 
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
-
 /**
  * This class contains the default {@link FirefoxDriver} configuration.
  * 
@@ -36,21 +34,14 @@ public class FirefoxConfiguration extends AbstractWebDriverConfiguration<Firefox
      * {@inheritDoc}
      */
     @Override
-    public FirefoxDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.mergeCapabilities(other, null);
-        FirefoxDriver driver;
-        
+    public FirefoxDriver start(Capabilities other) {
+        Capabilities capabilities = this.mergeCapabilities(other);
+
         if (capabilities == null) {
-            driver = new FirefoxDriver();
-        } else {
-            driver = new FirefoxDriver(capabilities);
+            return new FirefoxDriver();
         }
 
-        if (managed) {
-            WebDriverManager.setDriver(driver);
-        }
-
-        return driver;
+        return new FirefoxDriver(capabilities);
     }
 
     /**

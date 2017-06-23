@@ -7,8 +7,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaDriverService;
 
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
-
 /**
  * This class contains the default {@link OperaDriver} configuration.
  * 
@@ -36,21 +34,14 @@ public class OperaConfiguration extends AbstractWebDriverConfiguration<OperaConf
      * {@inheritDoc}
      */
     @Override
-    public OperaDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.mergeCapabilities(other, null);
-        OperaDriver driver;
-        
+    public OperaDriver start(Capabilities other) {
+        Capabilities capabilities = this.mergeCapabilities(other);
+
         if (capabilities == null) {
-            driver = new OperaDriver();
-        } else {
-            driver = new OperaDriver(capabilities);
+            return new OperaDriver();
         }
 
-        if (managed) {
-            WebDriverManager.setDriver(driver);
-        }
-
-        return driver;
+        return new OperaDriver(capabilities);
     }
 
     /**

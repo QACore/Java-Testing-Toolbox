@@ -44,7 +44,7 @@ public class JUnitConfigurationTest {
     public void getAdditionalPropertiesTest() {
         JUnitConfiguration configuration = new JUnitConfiguration();
         
-        assertNotNull(configuration.additionalProperties());
+        assertNotNull(configuration.getAdditionalProperties());
     }
     
     @Test

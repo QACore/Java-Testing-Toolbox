@@ -6,8 +6,6 @@ import java.util.Map;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.safari.SafariDriver;
 
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
-
 /**
  * This class contains the default {@link SafariDriver} configuration.
  * 
@@ -35,21 +33,14 @@ public class SafariConfiguration extends AbstractWebDriverConfiguration<SafariCo
      * {@inheritDoc}
      */
     @Override
-    public SafariDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.mergeCapabilities(other, null);
-        SafariDriver driver;
-        
+    public SafariDriver start(Capabilities other) {
+        Capabilities capabilities = this.mergeCapabilities(other);
+
         if (capabilities == null) {
-            driver = new SafariDriver();
-        } else {
-            driver = new SafariDriver(capabilities);
+            return new SafariDriver();
         }
 
-        if (managed) {
-            WebDriverManager.setDriver(driver);
-        }
-
-        return driver;
+        return new SafariDriver(capabilities);
     }
 
     /**

@@ -6,8 +6,6 @@ import java.util.Map;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
-
 /**
  * This class contains the default {@link HtmlUnitDriver} configuration.
  * 
@@ -35,21 +33,14 @@ public class HtmlUnitConfiguration extends AbstractWebDriverConfiguration<HtmlUn
      * {@inheritDoc}
      */
     @Override
-    public HtmlUnitDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.mergeCapabilities(other, null);
-        HtmlUnitDriver driver;
-        
+    public HtmlUnitDriver start(Capabilities other) {
+        Capabilities capabilities = this.mergeCapabilities(other);
+
         if (capabilities == null) {
-            driver = new HtmlUnitDriver();
-        } else {
-            driver = new HtmlUnitDriver(capabilities);
+            return new HtmlUnitDriver();
         }
 
-        if (managed) {
-            WebDriverManager.setDriver(driver);
-        }
-
-        return driver;
+        return new HtmlUnitDriver(capabilities);
     }
 
     /**

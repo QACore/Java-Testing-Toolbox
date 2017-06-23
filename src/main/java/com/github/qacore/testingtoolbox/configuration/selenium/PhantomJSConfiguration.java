@@ -7,8 +7,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
-
 /**
  * This class contains the default {@link PhantomJSDriver} configuration.
  * 
@@ -36,21 +34,14 @@ public class PhantomJSConfiguration extends AbstractWebDriverConfiguration<Phant
      * {@inheritDoc}
      */
     @Override
-    public PhantomJSDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.mergeCapabilities(other, null);
-        PhantomJSDriver driver;
-        
+    public PhantomJSDriver start(Capabilities other) {
+        Capabilities capabilities = this.mergeCapabilities(other);
+
         if (capabilities == null) {
-            driver = new PhantomJSDriver();
-        } else {
-            driver = new PhantomJSDriver(capabilities);
+            return new PhantomJSDriver();
         }
 
-        if (managed) {
-            WebDriverManager.setDriver(driver);
-        }
-
-        return driver;
+        return new PhantomJSDriver(capabilities);
     }
 
     /**

@@ -1,3 +1,11 @@
+v1.4.2 (2017-06-23)
+
+IMPORTANT CHANGES
+
+* com.github.qacore.testingtoolbox.configuration.AdditionalProperties
+	* Changed additionalProperties() to getAdditionalProperties()
+	* Changed additionalProperties(AdditionalProperties) to setAdditionalProperties(AdditionalProperties)
+
 v1.4.1 (2017-06-22)
 ======
 

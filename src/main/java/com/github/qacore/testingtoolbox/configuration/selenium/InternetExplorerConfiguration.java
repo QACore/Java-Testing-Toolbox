@@ -7,8 +7,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerDriverService;
 
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
-
 /**
  * This class contains the default {@link InternetExplorerDriver} configuration.
  * 
@@ -36,21 +34,14 @@ public class InternetExplorerConfiguration extends AbstractWebDriverConfiguratio
      * {@inheritDoc}
      */
     @Override
-    public InternetExplorerDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.mergeCapabilities(other, null);
-        InternetExplorerDriver driver;
-        
+    public InternetExplorerDriver start(Capabilities other) {
+        Capabilities capabilities = this.mergeCapabilities(other);
+
         if (capabilities == null) {
-            driver = new InternetExplorerDriver();
-        } else {
-            driver = new InternetExplorerDriver(capabilities);
+            return new InternetExplorerDriver();
         }
 
-        if (managed) {
-            WebDriverManager.setDriver(driver);
-        }
-
-        return driver;
+        return new InternetExplorerDriver(capabilities);
     }
 
     /**

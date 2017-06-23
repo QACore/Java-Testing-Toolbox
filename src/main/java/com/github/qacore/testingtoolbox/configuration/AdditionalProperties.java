@@ -43,7 +43,7 @@ public class AdditionalProperties<K, V> {
      * 
      * @return A map of additional properties.
      */
-    public Map<K, V> additionalProperties() {
+    public Map<K, V> getAdditionalProperties() {
         return additionalProperties;
     }
 
@@ -55,7 +55,7 @@ public class AdditionalProperties<K, V> {
      * 
      * @return Itself.
      */
-    public AdditionalProperties<K, V> additionalProperties(Map<K, V> additionalProperties) {
+    public AdditionalProperties<K, V> setAdditionalProperties(Map<K, V> additionalProperties) {
         if (additionalProperties == null) {
             this.additionalProperties = new HashMap<>();
         } else {

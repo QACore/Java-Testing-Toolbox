@@ -7,8 +7,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
-
 /**
  * This class contains the default {@link ChromeDriver} configuration.
  * 
@@ -36,21 +34,14 @@ public class ChromeConfiguration extends AbstractWebDriverConfiguration<ChromeCo
      * {@inheritDoc}
      */
     @Override
-    public ChromeDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.mergeCapabilities(other, null);
-        ChromeDriver driver;
+    public ChromeDriver start(Capabilities other) {
+        Capabilities capabilities = this.mergeCapabilities(other);
 
         if (capabilities == null) {
-            driver = new ChromeDriver();
-        } else {
-            driver = new ChromeDriver(capabilities);
+            return new ChromeDriver();
         }
 
-        if (managed) {
-            WebDriverManager.setDriver(driver);
-        }
-
-        return driver;
+        return new ChromeDriver(capabilities);
     }
 
     /**

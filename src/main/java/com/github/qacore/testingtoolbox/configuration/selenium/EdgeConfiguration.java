@@ -7,8 +7,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeDriverService;
 
-import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
-
 /**
  * This class contains the default {@link EdgeDriver} configuration.
  * 
@@ -36,21 +34,14 @@ public class EdgeConfiguration extends AbstractWebDriverConfiguration<EdgeConfig
      * {@inheritDoc}
      */
     @Override
-    public EdgeDriver start(boolean managed, Capabilities other) {
-        Capabilities capabilities = this.mergeCapabilities(other, null);
-        EdgeDriver driver;
-        
+    public EdgeDriver start(Capabilities other) {
+        Capabilities capabilities = this.mergeCapabilities(other);
+
         if (capabilities == null) {
-            driver = new EdgeDriver();
-        } else {
-            driver = new EdgeDriver(capabilities);
+            return new EdgeDriver();
         }
 
-        if (managed) {
-            WebDriverManager.setDriver(driver);
-        }
-
-        return driver;
+        return new EdgeDriver(capabilities);
     }
 
     /**

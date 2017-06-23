@@ -28,7 +28,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.WebDriverManager;
  * @since 1.4.0
  *
  */
-public abstract class AbstractWebDriverConfiguration<I extends AbstractWebDriverConfiguration<I, T>, T extends WebDriver> extends AdditionalProperties<Object, Object> {
+public abstract class AbstractWebDriverConfiguration<I, T extends WebDriver> extends AdditionalProperties<Object, Object> {
 
     private Capabilities defaultCapabilities;
 
@@ -51,7 +51,27 @@ public abstract class AbstractWebDriverConfiguration<I extends AbstractWebDriver
      * 
      * @return The new {@link WebDriver} with the default merged capabilities and other capabilities.
      */
-    public abstract T start(boolean managed, Capabilities other);
+    public T start(boolean managed, Capabilities other) {
+        T webDriver = this.start(other);
+
+        if (managed) {
+            WebDriverManager.setDriver(webDriver);
+        }
+
+        return webDriver;
+    }
+
+    /**
+     * Start new {@link WebDriver} with the default merged capabilities and other capabilities. This {@link WebDriver} will not be managed. If you want to manage it, please use {@link #start(boolean, Capabilities)}.
+     * 
+     * @param other
+     *            The other capabilities. (Null is accepted)
+     * 
+     * @return The new {@link WebDriver} with the default merged capabilities and other capabilities.
+     * 
+     * @see #start(boolean, Capabilities)
+     */
+    public abstract T start(Capabilities other);
 
     /**
      * Start new {@link WebDriver} with default capabilities.
@@ -63,6 +83,17 @@ public abstract class AbstractWebDriverConfiguration<I extends AbstractWebDriver
      */
     public T start(boolean managed) {
         return this.start(managed, null);
+    }
+
+    /**
+     * Start new {@link WebDriver} with default capabilities. This {@link WebDriver} will not be managed. If you want to manage it, please use {@link #start(boolean)}.
+     * 
+     * @return The new {@link WebDriver} with default capabilities.
+     * 
+     * @see #start(boolean)
+     */
+    public T start() {
+        return this.start(false, null);
     }
 
     /**
@@ -126,10 +157,10 @@ public abstract class AbstractWebDriverConfiguration<I extends AbstractWebDriver
      * Merge two {@link Capabilities} (default capabilities and other) together and return the union of the two as a new {@link Capabilities} instance. Capabilities from {@code other} will override those in {@code this}.
      * 
      * @param other
-     *            Other capabilities.
+     *            Other capabilities. (Null is accepted)
      * 
      * @param defaultIfNull
-     *            Default capabilities if null return.
+     *            Default capabilities if null return. (Null is accepted)
      * 
      * @return The merged capabilities.
      */
@@ -149,6 +180,18 @@ public abstract class AbstractWebDriverConfiguration<I extends AbstractWebDriver
         }
 
         return defaultIfNull;
+    }
+
+    /**
+     * Merge two {@link Capabilities} (default capabilities and other) together and return the union of the two as a new {@link Capabilities} instance. Capabilities from {@code other} will override those in {@code this}.
+     * 
+     * @param other
+     *            Other capabilities. (Null is accepted)
+     * 
+     * @return The merged capabilities.
+     */
+    protected Capabilities mergeCapabilities(Capabilities other) {
+        return this.mergeCapabilities(other, null);
     }
 
     /**
