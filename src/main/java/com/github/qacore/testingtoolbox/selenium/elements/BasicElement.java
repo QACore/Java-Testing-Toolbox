@@ -40,14 +40,6 @@ import lombok.experimental.Delegate;
  */
 public class BasicElement extends ManagedWebDriverContext implements WebElement, WrapsElement, Locatable {
 
-    /**
-     * Retrieves the locator of this element.
-     * 
-     * @return The locator of this element.
-     * 
-     * @since 1.5.0
-     */
-    @Getter
     @Setter(PROTECTED)
     private By         locator;
 
@@ -138,6 +130,17 @@ public class BasicElement extends ManagedWebDriverContext implements WebElement,
      */
     public String getTitle() {
         return this.getAttribute("title");
+    }
+    
+    /**
+     * Retrieves the locator of this element.
+     * 
+     * @return The locator of this element.
+     * 
+     * @since 1.5.0
+     */
+    public By getLocator() {
+        return locator;
     }
 
     @Delegate
