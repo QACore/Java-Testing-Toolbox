@@ -77,8 +77,6 @@ public class BasicElement extends ManagedWebDriverContext implements WebElement,
      * Retrieves the id of this element.
      * 
      * @return The id of this element.
-     * 
-     * @since 1.5.0
      */
     public String getId() {
         return this.getAttribute("id");
@@ -88,8 +86,6 @@ public class BasicElement extends ManagedWebDriverContext implements WebElement,
      * Retrieves the name of this element.
      * 
      * @return The name of this element.
-     * 
-     * @since 1.5.0
      */
     public String getName() {
         return this.getAttribute("name");
@@ -99,8 +95,6 @@ public class BasicElement extends ManagedWebDriverContext implements WebElement,
      * Retrieves the style class of this element.
      * 
      * @return The style class of this element.
-     * 
-     * @since 1.5.0
      */
     public List<String> getStyleClass() {
         String styleClass = this.getAttribute("class");
@@ -124,8 +118,6 @@ public class BasicElement extends ManagedWebDriverContext implements WebElement,
      * Retrieves the title of this element.
      * 
      * @return The title of this element.
-     * 
-     * @since 1.5.0
      */
     public String getTitle() {
         return this.getAttribute("title");
@@ -135,8 +127,6 @@ public class BasicElement extends ManagedWebDriverContext implements WebElement,
      * Retrieves the locator of this element.
      * 
      * @return The locator of this element.
-     * 
-     * @since 1.5.0
      */
     public By getLocator() {
         return locator;
