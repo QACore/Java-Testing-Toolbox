@@ -57,6 +57,29 @@ public class ManagedWebDriverContext implements WrapsDriver {
         return driverContext.getWrappedDriver();
     }
 
+    protected void setWrappedDriver(WrapsDriver driverContext) {
+        if (driverContext == null) {
+            this.driverContext = WebDriverManager.getDriverContext();
+        } else {
+            this.driverContext = driverContext;
+        }
+    }
+
+    protected void setWrappedDriver(WebDriver webDriver) {
+        if (webDriver == null) {
+            this.driverContext = WebDriverManager.getDriverContext();
+        } else {
+            this.driverContext = new WrapsDriver() {
+
+                @Override
+                public WebDriver getWrappedDriver() {
+                    return webDriver;
+                }
+
+            };
+        }
+    }
+
     protected WrapsDriver getDriverContext() {
         return driverContext;
     }

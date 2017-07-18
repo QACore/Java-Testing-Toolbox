@@ -42,12 +42,12 @@ public class JSWebStorage extends ManagedWebDriverContext implements WebStorage 
 
     @Override
     public LocalStorage getLocalStorage() {
-        return new JSLocalStorage(this.getDriverContext());
+        return new JSLocalStorage(this);
     }
 
     @Override
     public SessionStorage getSessionStorage() {
-        return new JSSessionStorage(this.getDriverContext());
+        return new JSSessionStorage(this);
     }
 
 }
