@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.internal.Coordinates;
+import org.openqa.selenium.internal.Locatable;
 import org.openqa.selenium.internal.WrapsDriver;
 import org.openqa.selenium.internal.WrapsElement;
 
@@ -29,15 +30,23 @@ import lombok.experimental.Delegate;
  *         <li><a href="mailto:lcdesenv@gmail.com">lcdesenv@gmail.com</a></li>
  *         </ul>
  * 
- * @see Element
+ * @see WebElement
  * @see WrapsElement
+ * @see Locatable
  * @see ManagedWebDriverContext
  * 
  * @since 1.5.0
  *
  */
-public class BasicElement extends ManagedWebDriverContext implements Element, WrapsElement {
+public class BasicElement extends ManagedWebDriverContext implements WebElement, WrapsElement, Locatable {
 
+    /**
+     * Retrieves the locator of this element.
+     * 
+     * @return The locator of this element.
+     * 
+     * @since 1.5.0
+     */
     @Getter
     @Setter(PROTECTED)
     private By         locator;
@@ -73,17 +82,35 @@ public class BasicElement extends ManagedWebDriverContext implements Element, Wr
         super();
     }
 
-    @Override
+    /**
+     * Retrieves the id of this element.
+     * 
+     * @return The id of this element.
+     * 
+     * @since 1.5.0
+     */
     public String getId() {
         return this.getAttribute("id");
     }
 
-    @Override
+    /**
+     * Retrieves the name of this element.
+     * 
+     * @return The name of this element.
+     * 
+     * @since 1.5.0
+     */
     public String getName() {
         return this.getAttribute("name");
     }
 
-    @Override
+    /**
+     * Retrieves the style class of this element.
+     * 
+     * @return The style class of this element.
+     * 
+     * @since 1.5.0
+     */
     public List<String> getStyleClass() {
         String styleClass = this.getAttribute("class");
 
@@ -102,7 +129,13 @@ public class BasicElement extends ManagedWebDriverContext implements Element, Wr
         return styleClasses;
     }
 
-    @Override
+    /**
+     * Retrieves the title of this element.
+     * 
+     * @return The title of this element.
+     * 
+     * @since 1.5.0
+     */
     public String getTitle() {
         return this.getAttribute("title");
     }
