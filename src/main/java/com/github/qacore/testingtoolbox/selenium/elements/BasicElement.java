@@ -15,7 +15,6 @@ import org.openqa.selenium.internal.WrapsElement;
 
 import com.github.qacore.testingtoolbox.selenium.parallel.ManagedWebDriverContext;
 
-import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.experimental.Delegate;
@@ -131,7 +130,7 @@ public class BasicElement extends ManagedWebDriverContext implements WebElement,
     public String getTitle() {
         return this.getAttribute("title");
     }
-    
+
     /**
      * Retrieves the locator of this element.
      * 

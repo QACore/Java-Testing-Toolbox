@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.internal.WrapsDriver;
 
 /**
- * Represents an HTML image.
+ * Represents an HTML hyperlink.
  * 
  * @author Leonardo Carmona da Silva
  *         <ul>
@@ -14,54 +14,54 @@ import org.openqa.selenium.internal.WrapsDriver;
  *         <li><a href="https://github.com/leocarmona">https://github.com/leocarmona</a></li>
  *         <li><a href="mailto:lcdesenv@gmail.com">lcdesenv@gmail.com</a></li>
  *         </ul>
- *
+ * 
  * @see BasicElement
  * 
  * @since 1.5.0
- *
+ * 
  */
-public class Image extends BasicElement {
+public class Hyperlink extends BasicElement {
 
-    public Image(WrapsDriver driverContext, By locator) {
+    public Hyperlink(WrapsDriver driverContext, By locator) {
         super(driverContext, locator);
     }
 
-    public Image(WebDriver webDriver, By locator) {
+    public Hyperlink(WebDriver webDriver, By locator) {
         super(webDriver, locator);
     }
 
-    public Image(By locator) {
+    public Hyperlink(By locator) {
         super(locator);
     }
 
-    public Image(WebElement wrappedElement) {
+    public Hyperlink(WebElement wrappedElement) {
         super(wrappedElement);
     }
 
-    protected Image() {
+    protected Hyperlink() {
         super();
     }
 
     /**
-     * Retrieves the alt of this image.
+     * Retrieves the specified URL of the page the link goes to.
      * 
-     * @return The alt of this image.
+     * @return The href of this link.
      * 
      * @since 1.5.0
      */
-    public String getAlt() {
-        return this.getAttribute("alt");
+    public String getHref() {
+        return this.getAttribute("href");
     }
 
     /**
-     * Retrieves the src of this image.
+     * Retrieves the specification of where to open the linked document.
      * 
-     * @return The src of this image.
+     * @return The target of this link.
      * 
      * @since 1.5.0
      */
-    public String getSrc() {
-        return this.getAttribute("src");
+    public String getTarget() {
+        return this.getAttribute("target");
     }
 
 }
