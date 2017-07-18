@@ -46,8 +46,6 @@ public class Image extends BasicElement {
      * Retrieves the alt of this image.
      * 
      * @return The alt of this image.
-     * 
-     * @since 1.5.0
      */
     public String getAlt() {
         return this.getAttribute("alt");
@@ -57,8 +55,6 @@ public class Image extends BasicElement {
      * Retrieves the src of this image.
      * 
      * @return The src of this image.
-     * 
-     * @since 1.5.0
      */
     public String getSrc() {
         return this.getAttribute("src");

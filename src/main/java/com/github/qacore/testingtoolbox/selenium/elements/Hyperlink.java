@@ -46,8 +46,6 @@ public class Hyperlink extends BasicElement {
      * Retrieves the specified URL of the page the link goes to.
      * 
      * @return The href of this link.
-     * 
-     * @since 1.5.0
      */
     public String getHref() {
         return this.getAttribute("href");
@@ -57,8 +55,6 @@ public class Hyperlink extends BasicElement {
      * Retrieves the specification of where to open the linked document.
      * 
      * @return The target of this link.
-     * 
-     * @since 1.5.0
      */
     public String getTarget() {
         return this.getAttribute("target");
