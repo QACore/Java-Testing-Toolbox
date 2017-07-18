@@ -3,6 +3,8 @@ package com.github.qacore.testingtoolbox.selenium.parallel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.internal.WrapsDriver;
 
+import lombok.ToString;
+
 /**
  * Managed {@link WebDriver} parallel context.
  * <p>
@@ -21,6 +23,7 @@ import org.openqa.selenium.internal.WrapsDriver;
  * @since 1.2.0
  *
  */
+@ToString
 public class ManagedWebDriverContext implements WrapsDriver {
 
     private WrapsDriver driverContext;
@@ -86,11 +89,6 @@ public class ManagedWebDriverContext implements WrapsDriver {
 
     protected void setDriverContext(WrapsDriver driverContext) {
         this.driverContext = driverContext;
-    }
-
-    @Override
-    public String toString() {
-        return "ManagedWebDriverContext [driverContext=" + driverContext + "]";
     }
 
 }

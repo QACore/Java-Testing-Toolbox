@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.internal.Coordinates;
@@ -17,6 +19,7 @@ import com.github.qacore.testingtoolbox.selenium.parallel.ManagedWebDriverContex
 
 import lombok.NonNull;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Delegate;
 
 /**
@@ -37,6 +40,7 @@ import lombok.experimental.Delegate;
  * @since 1.5.0
  *
  */
+@ToString(callSuper = true, doNotUseGetters = true)
 public class BasicElement extends ManagedWebDriverContext implements WebElement, WrapsElement, Locatable {
 
     @Setter(PROTECTED)
@@ -71,6 +75,30 @@ public class BasicElement extends ManagedWebDriverContext implements WebElement,
 
     protected BasicElement() {
         super();
+    }
+
+    /**
+     * Check if the element is present.
+     * 
+     * @return True if the element is present. Otherwise, false.
+     */
+    public boolean isPresent() {
+        try {
+            this.isDisplayed();
+
+            return true;
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Check if the element is clicable.
+     * 
+     * @return True if the element is clicable. Otherwise, false.
+     */
+    public boolean isClicable() {
+        return this.isDisplayed() && this.isEnabled();
     }
 
     /**
